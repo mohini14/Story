@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import model.MainPageData;
+import com.topstories.story.model.MainPageData;
 
 public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityRecyclerView.RecyclerviewHolder> {
 

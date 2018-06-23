@@ -1,25 +1,25 @@
 package com.topstories.story;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import model.MainPageData;
+import com.topstories.story.model.MainPageData;
 
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.parent_recycler_view)
     RecyclerView mMainPageRecyclerView;
+
+    @Nullable
+    @BindView(R.id.my_toolbar)
+    Toolbar mToolbar;
 
     private Unbinder mUnBinder;
 
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         mUnBinder = ButterKnife.bind(this);
         mMainPageRecyclerView.setHasFixedSize(true);
+
+        setSupportActionBar(mToolbar);
         mMainPageRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMainPageRecyclerView.setAdapter(new MainActivityRecyclerView(new MainPageData().getData(), this));
     }

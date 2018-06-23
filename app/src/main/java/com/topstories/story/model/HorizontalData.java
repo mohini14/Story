@@ -1,4 +1,4 @@
-package model;
+package com.topstories.story.model;
 
 public class HorizontalData {
     public String getImageURL() {

@@ -1,4 +1,4 @@
-package model;
+package com.topstories.story.model;
 
 import com.topstories.story.utils.AppStrings;
 

@@ -40,7 +40,7 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
         Picasso.with(mContext)
-                .load(mListData.get(position)).placeholder(R.drawable.my_image)
+                .load(mListData.get(position)).placeholder(R.drawable.loading_mark)
                 //.memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
 
                 .into(holder.imageView);
