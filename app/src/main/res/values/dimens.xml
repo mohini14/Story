@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin">30dp</dimen>
+    <dimen name="main_page_title_size">15sp</dimen>
+</resources>
