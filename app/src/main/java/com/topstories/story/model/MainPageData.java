@@ -25,14 +25,14 @@ public class MainPageData {
 
             MainPageData data = new MainPageData();
             data.category = faker.name.firstName();
-            data.stories = getStories();
+            data.stories = createStories();
             mainPageList.add(data);
         }
 
         return mainPageList;
     }
 
-    public List<Story> getStories(){
+    public List<Story> createStories(){
 
         List<Story> stories = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
