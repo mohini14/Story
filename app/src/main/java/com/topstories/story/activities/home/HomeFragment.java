@@ -16,8 +16,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment {
-
-
     @BindView(R.id.parent_recycler_view)
     RecyclerView mMainPageRecyclerView;
 
@@ -31,7 +29,6 @@ public class HomeFragment extends Fragment {
 
     private void setUpLayout(View v){
         ButterKnife.bind(this, v);
-
         mMainPageRecyclerView.setHasFixedSize(true);
         mMainPageRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mMainPageRecyclerView.setAdapter(new MainActivityRecyclerView(new MainPageData().getData(), getContext()));

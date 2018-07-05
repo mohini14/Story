@@ -4,25 +4,22 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.topstories.story.R;
 import com.topstories.story.activities.download.DownloadFragment;
 import com.topstories.story.activities.search.SearchFragment;
-import com.topstories.story.model.MainPageData;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 
     @Nullable
@@ -51,31 +48,45 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void setUpLauyout() {
-
         mUnBinder = ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-
         mBottomNavigationView.setOnNavigationItemSelectedListener(this);
-        attachHomeActivityByDefault();
-    }
 
-    private void attachHomeActivityByDefault(){
+        // add Home frag activity by default
         addFragmentOnHomeActivity(new HomeFragment(), HOME_FRAGMENT_TAG);
     }
+
     /**
      * Method to add fragment on home view container
+     *
      * @param fragment : frag class
-     * @param tag : tag of frag defined in Home class
+     * @param tag      : tag of frag defined in Home class
      */
-    private void addFragmentOnHomeActivity(android.support.v4.app.Fragment fragment, int tag){
+    private void addFragmentOnHomeActivity(Fragment fragment, int tag) {
         android.support.v4.app.Fragment fragExists = getSupportFragmentManager().findFragmentByTag(String.valueOf(tag));
         if (fragExists == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.home_frag_container, fragment, String.valueOf(tag));
-                transaction.addToBackStack(String.valueOf(tag)).commit();
+            transaction.replace(R.id.home_frag_container, fragment, String.valueOf(tag));
+                transaction.commit();
         }
     }
 
+    /**
+     * Method to remove all fragments from container
+     */
+    private void removeAllFragFromActivity(){
+        FragmentManager fm = getSupportFragmentManager();
+
+        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+            fm.popBackStack();
+        }
+
+    }
+
+    /**
+     * Method invoked as item listener for bottom navigation view items
+     * @param item : item clecked
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
