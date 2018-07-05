@@ -49,7 +49,7 @@ public class StoryDescriptionActivity extends AppCompatActivity {
         titleTextView.setText(currentStory.getTitle());
         descriptionTextView.setText(currentStory.getDescription());
         descriptionTextView.setLineSpacing(20,1);
-        descriptionTextView.setLetterSpacing(0.05f);
+//        descriptionTextView.setLetterSpacing(0.05f);
         generesView.setText(currentStory.getGeneresText());
         authorView.setText(currentStory.getAuthorBioText());
         likesCountTextView.setText(currentStory.likesCountText());
