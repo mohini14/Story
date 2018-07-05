@@ -1,4 +1,4 @@
-package com.topstories.story;
+package com.topstories.story.activity.main_activity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
 import com.topstories.story.model.Story;
 import com.topstories.story.utils.Gen;
