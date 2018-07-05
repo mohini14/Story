@@ -23,7 +23,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
     ArrayList<MainPageData> dataArray;
     Context mContext;
 
-    MainActivityRecyclerView(ArrayList<MainPageData> data, Context con) {
+    public MainActivityRecyclerView(ArrayList<MainPageData> data, Context con) {
         this.dataArray = data;
         this.mContext = con;
     }

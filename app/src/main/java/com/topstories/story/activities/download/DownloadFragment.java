@@ -9,7 +9,11 @@ import android.view.ViewGroup;
 
 import com.topstories.story.R;
 
+import butterknife.Unbinder;
+
 public class DownloadFragment extends Fragment {
+
+    Unbinder mUnbinder;
 
     @Nullable
     @Override
@@ -17,5 +21,4 @@ public class DownloadFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_download, container, false);
         return root;
     }
-
 }

@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 
 import com.topstories.story.R;
 
+import butterknife.Unbinder;
+
 public class SearchFragment extends android.support.v4.app.Fragment {
 
+    Unbinder mUnbinder;
 
     @Nullable
     @Override
@@ -17,5 +20,4 @@ public class SearchFragment extends android.support.v4.app.Fragment {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
         return root;
     }
-
 }
