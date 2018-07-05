@@ -1,5 +1,6 @@
 package com.topstories.story.activity.main_activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
 import com.topstories.story.model.Story;
 import com.topstories.story.utils.Gen;
+import com.topstories.story.utils.SavedInstance;
 
 import java.util.List;
 
@@ -49,6 +51,8 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
 
         holder.imageView.setOnClickListener(v->{
             Gen.makeShortToast(mContext,"Story clicked is "+holder.story.getTitle());
+            SavedInstance.getInstance().selectedStory = holder.story;
+            Gen.startActivity((Activity) mContext, false, MainActivity.class);
         });
     }
 
