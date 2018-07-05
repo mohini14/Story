@@ -52,7 +52,7 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
         holder.imageView.setOnClickListener(v->{
             Gen.makeShortToast(mContext,"Story clicked is "+holder.story.getTitle());
             SavedInstance.getInstance().selectedStory = holder.story;
-            Gen.startActivity((Activity) mContext, false, MainActivity.class);
+            Gen.startActivity((Activity) mContext, false, StoryDescriptionActivity.class);
         });
     }
 
