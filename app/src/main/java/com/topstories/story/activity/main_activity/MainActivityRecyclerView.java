@@ -48,7 +48,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
         return dataArray.size();
     }
 
-    class RecyclerviewHolder extends RecyclerView.ViewHolder {
+    public class RecyclerviewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.horizontal_recyclerview)
         RecyclerView childRecyclerView;
@@ -59,7 +59,6 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
         RecyclerviewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
         }
     }
 }
