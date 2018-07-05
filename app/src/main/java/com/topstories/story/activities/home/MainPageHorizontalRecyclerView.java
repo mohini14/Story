@@ -1,4 +1,4 @@
-package com.topstories.story.activity.main_activity;
+package com.topstories.story.activities.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,16 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
 import com.topstories.story.model.Story;
 import com.topstories.story.utils.Gen;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +37,7 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
         holder.story = mData.getStories().get(position);
+
         Picasso.with(mContext)
                 .load(holder.story.getThumbNailUrl())
                 .error(R.drawable.loading)

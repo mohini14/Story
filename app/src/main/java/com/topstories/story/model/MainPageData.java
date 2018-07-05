@@ -42,5 +42,7 @@ public class MainPageData {
     }
 
 
-
+    public String getCategory() {
+        return category;
+    }
 }

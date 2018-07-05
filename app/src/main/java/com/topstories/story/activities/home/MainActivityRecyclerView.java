@@ -1,4 +1,4 @@
-package com.topstories.story.activity.main_activity;
+package com.topstories.story.activities.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
