@@ -1,5 +1,6 @@
 package com.topstories.story.activities.home;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
 import com.topstories.story.model.Story;
 import com.topstories.story.utils.Gen;
+import com.topstories.story.utils.SavedInstance;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,14 +40,20 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
         holder.story = mData.getStories().get(position);
 
+        final Story story = holder.story;
         Picasso.with(mContext)
                 .load(holder.story.getThumbNailUrl())
                 .error(R.drawable.loading)
                 .placeholder(R.drawable.loading)
                 .into(holder.imageView);
 
-        holder.imageView.setOnClickListener(v->{
-            Gen.makeShortToast(mContext,"Story clicked is "+holder.story.getTitle());
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gen.makeShortToast(mContext, "Story clicked is " + story.getTitle());
+                SavedInstance.getInstance().selectedStory = story;
+                Gen.startActivity((Activity) mContext, false, StoryDescriptionActivity.class);
+            }
         });
     }
 
