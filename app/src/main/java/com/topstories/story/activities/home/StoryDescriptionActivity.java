@@ -10,6 +10,8 @@ import com.topstories.story.R;
 import com.topstories.story.model.Story;
 import com.topstories.story.utils.SavedInstance;
 
+import org.w3c.dom.Text;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -20,6 +22,8 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     @BindView(R.id.story_description_image_view_id) public ImageView imageView;
     @BindView(R.id.story_description_title_id) public TextView titleTextView;
     @BindView(R.id.story_description_description_id) public TextView descriptionTextView;
+    @BindView(R.id.story_description_generes_view_id) public TextView generesView;
+    @BindView(R.id.story_description_author_view_id) public TextView authorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +33,15 @@ public class StoryDescriptionActivity extends AppCompatActivity {
         currentStory = SavedInstance.getInstance().selectedStory;
 
         Picasso.with(this)
-                .load(currentStory.getThumbNailUrl())
+                .load(currentStory.getMainImageUrl())
                 .error(R.drawable.loading)
                 .placeholder(R.drawable.loading)
                 .into(imageView);
 
         titleTextView.setText(currentStory.getTitle());
         descriptionTextView.setText(currentStory.getDescription());
+        generesView.setText(currentStory.getGeneresText());
+        authorView.setText(currentStory.getAuthorBioText());
     }
 
 }

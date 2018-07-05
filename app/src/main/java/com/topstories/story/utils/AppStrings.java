@@ -10,4 +10,8 @@ public class AppStrings {
     public static  String getRandomImageUrl() {
         return "https://picsum.photos/" + getRandom(100, 200) + "/" + getRandom(100, 200) + "/";
     }
+
+    public static  String getRandomImageUrl(int min, int max) {
+        return "https://picsum.photos/" + getRandom(min, max) + "/" + getRandom(100, 200) + "/";
+    }
 }

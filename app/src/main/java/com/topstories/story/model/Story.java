@@ -2,6 +2,7 @@ package com.topstories.story.model;
 
 import com.topstories.story.utils.AppStrings;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Story {
 
     private static final Faker faker = new Faker();
     private String thumbNailUrl;
+    private String mainImageUrl;
     private String category;
     private String title;
     private String description;
@@ -24,11 +26,13 @@ public class Story {
     private Integer dislikes;
     private Integer views;
     private List<String> tags;
+    private List<String> generes;
     private Date createdAt;
     private String author;
 
     public Story(){
         thumbNailUrl = AppStrings.getRandomImageUrl();
+        mainImageUrl = AppStrings.getRandomImageUrl(600,800);
         category = faker.book.genre();
         title = faker.book.title();
         description = faker.lorem.sentence(30);
@@ -37,8 +41,18 @@ public class Story {
         dislikes = (int) (Math.random() * 10000);
         views = (int) (Math.random() * 10000);
         tags = Arrays.asList(faker.team.name(), faker.team.name(), faker.team.name());
+        generes = Arrays.asList(faker.book.genre(), faker.book.genre(), faker.book.genre());
         createdAt = faker.date.backward();
         author = faker.name.name();
+    }
+
+    public String getGeneresText(){
+//        return String.join(",", generes);
+        return generes.toString();
+    }
+
+    public String getAuthorBioText(){
+        return MessageFormat.format("By {0} in {1}", author, createdAt.getYear());
     }
 
 
