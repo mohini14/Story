@@ -7,96 +7,130 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".activities.home.StoryDescriptionActivity">
 
-
-    <ImageView
-        android:id="@+id/story_description_image_view_id"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loading" />
-
-    <TextView
-        android:id="@+id/story_description_title_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="@color/titleTextColor"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id" />
-
-    <TextView
-        android:id="@+id/story_description_description_id"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto_light"
-        android:maxLines="@android:integer/status_bar_notification_info_maxnum"
-        android:text="While I was still in college, my family was going through financial difficulties. My father suggested that I get a job -- girls from my background often give up their education to start working"
-        android:textColor="@color/descriptionTextColor"
-        android:textSize="16sp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_author_view_id" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/story_description_views_image_id"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/story_description_title_id"
-        app:layout_constraintEnd_toStartOf="@+id/story_description_views_count_id"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/view" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/story_description_views_count_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="120"
-        android:textColor="@color/titleTextColor"
-        app:layout_constraintBottom_toBottomOf="@+id/story_description_title_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id" />
+            <ImageView
+                android:id="@+id/story_description_image_view_id"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/loading" />
 
-    <TextView
-        android:id="@+id/story_description_generes_view_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Romance, Thriller, Action"
-        android:textColor="@color/titleTextColor"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_title_id" />
+            <TextView
+                android:id="@+id/story_description_title_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:text="TextView"
+                android:textColor="@color/titleTextColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/story_description_views_image_id"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id" />
 
-    <TextView
-        android:id="@+id/story_description_author_view_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="By Aruna Mishal in 2018"
-        android:textColor="@color/descriptionTextColor"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story_description_generes_view_id" />
+            <TextView
+                android:id="@+id/story_description_description_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_light"
+                android:maxLines="10000"
+                android:text="While I was still in college,\n
+                my family was going through financial difficulties.
+                My father suggested that I get a job -- girls from my background
+                often give up their education to start working"
+                android:textColor="@color/descriptionTextColor"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_author_view_id" />
+
+            <ImageView
+                android:id="@+id/story_description_views_image_id"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/story_description_title_id"
+                app:layout_constraintEnd_toStartOf="@+id/story_description_views_count_id"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/view" />
+
+            <TextView
+                android:id="@+id/story_description_views_count_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="120"
+                android:textColor="@color/titleTextColor"
+                app:layout_constraintBottom_toBottomOf="@+id/story_description_title_id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id" />
+
+            <TextView
+                android:id="@+id/story_description_generes_view_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="Romance, Thriller, Action"
+                android:textColor="@color/titleTextColor"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_title_id" />
+
+            <TextView
+                android:id="@+id/story_description_author_view_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="By Aruna Mishal in 2018"
+                android:textColor="@color/descriptionTextColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/story_description_generes_view_id" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Generes : "
+                android:textColor="@color/descriptionTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/story_description_generes_view_id" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -120,7 +154,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/story_description_likes_count_id"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginBottom="8dp"
@@ -164,7 +198,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/story_description_dislikes_count_id"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginBottom="8dp"
@@ -208,7 +242,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/story_description_loves_count_id"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginBottom="8dp"
@@ -243,4 +277,5 @@
 
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

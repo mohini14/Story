@@ -1,6 +1,7 @@
 package com.topstories.story.model;
 
 import com.topstories.story.utils.AppStrings;
+import com.topstories.story.utils.Gen;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class Story {
         mainImageUrl = AppStrings.getRandomImageUrl(600,800);
         category = faker.book.genre();
         title = faker.book.title();
-        description = faker.lorem.sentence(30);
+        description = faker.lorem.sentence(100) + ".\n\n" + faker.lorem.sentence(100) + ".\n\n" + faker.lorem.sentence(100);
         likes = (int) (Math.random() * 10000);
         loved = (int) (Math.random() * 10000);
         dislikes = (int) (Math.random() * 10000);
@@ -55,5 +56,19 @@ public class Story {
         return MessageFormat.format("By {0} in {1}", author, createdAt.getYear());
     }
 
+    public String likesCountText() {
+        return Gen.numberToTextFormat(Double.valueOf(likes));
+    }
 
+    public String dislikesCountText(){
+        return Gen.numberToTextFormat(Double.valueOf(dislikes));
+    }
+
+    public String lovedCountText(){
+        return Gen.numberToTextFormat(Double.valueOf(loved));
+    }
+
+    public String viewsCountText(){
+        return Gen.numberToTextFormat(Double.valueOf(views));
+    }
 }

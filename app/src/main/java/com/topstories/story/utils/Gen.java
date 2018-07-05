@@ -52,4 +52,13 @@ public class Gen {
         startActivity(intent, clearStack);
     }
 
+    public static String numberToTextFormat(Double likes) {
+        if (likes < 1000)
+            return likes.toString();
+        if (likes > 1000 && likes < 1000000)
+            return String.format("%.2fK", likes/1000) ;
+        else
+            return String.format("%.2fM", likes/1000000) ;
+
+    }
 }
