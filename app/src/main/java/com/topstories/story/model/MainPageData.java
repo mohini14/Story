@@ -1,6 +1,7 @@
 package com.topstories.story.model;
 
 import com.topstories.story.utils.AppStrings;
+import com.topstories.story.utils.Utility;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class MainPageData {
 
         for (int i = 0; i < 10; i++) {
 
-            imageURL = AppStrings.getRandomImages();
+            imageURL = Utility.getRandomImages();
             images.add(imageURL);
         }
         return images;
@@ -56,5 +57,7 @@ public class MainPageData {
         return descriptions;
     }
 
-
+    public String getCategory() {
+        return category;
+    }
 }

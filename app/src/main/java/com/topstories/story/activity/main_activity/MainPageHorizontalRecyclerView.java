@@ -1,4 +1,4 @@
-package com.topstories.story;
+package com.topstories.story.activity.main_activity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,12 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,7 +37,6 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
         Picasso.with(mContext)
                 .load(mData.getImageURLList().get(position)).placeholder(R.drawable.loading)
                 .into(holder.imageView);
-
     }
 
     @Override
@@ -58,3 +55,4 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
         }
     }
 }
+
