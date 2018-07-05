@@ -33,6 +33,7 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        app:itemIconTint="@android:color/white"
         android:background="@color/colorPrimary"
         app:itemTextColor="@android:color/white"
         android:backgroundTint="@color/colorPrimary"
