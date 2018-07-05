@@ -43,16 +43,20 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
         holder.story = mData.getStories().get(position);
+        final Story story = holder.story;
         Picasso.with(mContext)
                 .load(holder.story.getThumbNailUrl())
                 .error(R.drawable.loading)
                 .placeholder(R.drawable.loading)
                 .into(holder.imageView);
 
-        holder.imageView.setOnClickListener(v->{
-            Gen.makeShortToast(mContext,"Story clicked is "+holder.story.getTitle());
-            SavedInstance.getInstance().selectedStory = holder.story;
-            Gen.startActivity((Activity) mContext, false, StoryDescriptionActivity.class);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gen.makeShortToast(mContext, "Story clicked is " + story.getTitle());
+                SavedInstance.getInstance().selectedStory = story;
+                Gen.startActivity((Activity) mContext, false, StoryDescriptionActivity.class);
+            }
         });
     }
 
