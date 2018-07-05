@@ -8,9 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.topstories.story.model.MainPageData;
+import com.topstories.story.model.Story;
+import com.topstories.story.utils.Gen;
 
 import java.util.List;
 
@@ -36,21 +39,29 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
+        holder.story = mData.getStories().get(position);
         Picasso.with(mContext)
-                .load(mData.getImageURLList().get(position)).placeholder(R.drawable.loading)
+                .load(holder.story.getThumbNailUrl())
+                .error(R.drawable.loading)
+                .placeholder(R.drawable.loading)
                 .into(holder.imageView);
 
+        holder.imageView.setOnClickListener(v->{
+            Gen.makeShortToast(mContext,"Story clicked is "+holder.story.getTitle());
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mData.getImageURLList().size();
+        return mData.getStories().size();
     }
 
     public class RecyclerviewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.horizontal_cell_image_view_id)
         ImageView imageView;
+
+        private Story story;
 
         RecyclerviewHolder(View itemView) {
             super(itemView);

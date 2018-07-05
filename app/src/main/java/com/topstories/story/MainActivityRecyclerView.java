@@ -18,7 +18,7 @@ import com.topstories.story.model.MainPageData;
 public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityRecyclerView.RecyclerviewHolder> {
 
 
-    ArrayList<MainPageData> dataArray = new ArrayList<>();
+    ArrayList<MainPageData> dataArray;
     Context mContext;
 
     MainActivityRecyclerView(ArrayList<MainPageData> data, Context con) {
@@ -38,6 +38,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
         holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position), mContext));
         holder.textView.setText(dataArray.get(position).getCategory());
+
     }
 
     @Override
