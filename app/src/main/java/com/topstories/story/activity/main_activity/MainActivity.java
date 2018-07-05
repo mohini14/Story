@@ -1,18 +1,18 @@
-package com.topstories.story;
+package com.topstories.story.activity.main_activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.internal.BottomNavigationMenu;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.topstories.story.R;
+import com.topstories.story.model.MainPageData;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.topstories.story.model.MainPageData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private void setUpLauyout(){
 
         mUnBinder = ButterKnife.bind(this);
-        mMainPageRecyclerView.setHasFixedSize(true);
-
         setSupportActionBar(mToolbar);
+
+        mMainPageRecyclerView.setHasFixedSize(true);
         mMainPageRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMainPageRecyclerView.setAdapter(new MainActivityRecyclerView(new MainPageData().getData(), this));
     }

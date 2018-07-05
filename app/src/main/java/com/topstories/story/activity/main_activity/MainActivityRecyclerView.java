@@ -1,4 +1,4 @@
-package com.topstories.story;
+package com.topstories.story.activity.main_activity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.topstories.story.R;
 import com.topstories.story.model.MainPageData;
 
 public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityRecyclerView.RecyclerviewHolder> {
@@ -30,7 +32,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
     @Override
     public RecyclerviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.vertical_recyclerview_cell, parent, false);
-        return new MainActivityRecyclerView.RecyclerviewHolder(v);
+        return new RecyclerviewHolder(v);
     }
 
     @Override
