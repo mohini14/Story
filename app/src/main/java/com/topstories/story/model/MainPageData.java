@@ -5,50 +5,35 @@ import com.topstories.story.utils.AppStrings;
 import java.util.ArrayList;
 
 import io.bloco.faker.Faker;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class MainPageData {
 
-    String category;
-    String imageURL;
-    ArrayList<String> imageURLList;
+    private String category;
+    private String imageURL;
+    private ArrayList<String> imageURLList;
+    private ArrayList<String> descriptionList;
+    private static final Faker faker = new Faker();
 
     public ArrayList<String> getImageURLList() {
         return imageURLList;
     }
 
-    public void setImageURLList(ArrayList<String> imageURLList) {
-        this.imageURLList = imageURLList;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
     public ArrayList<MainPageData> getData() {
-        ArrayList<MainPageData> mainPageData = new ArrayList<>();
-        Faker faker = new Faker();
+        ArrayList<MainPageData> mainPageList = new ArrayList<>();
         imageURLList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
 
             MainPageData data = new MainPageData();
             data.category = faker.name.firstName();
             data.imageURLList = getImages(faker);
-            mainPageData.add(data);
+            data.descriptionList = getDescriptions(faker);
+            mainPageList.add(data);
         }
 
-        return mainPageData;
+        return mainPageList;
     }
 
     private ArrayList<String> getImages(Faker faker) {
@@ -60,6 +45,15 @@ public class MainPageData {
             images.add(imageURL);
         }
         return images;
+    }
+
+    private ArrayList<String> getDescriptions(Faker faker){
+        ArrayList<String> descriptions = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            descriptions.add(faker.lorem.sentence(3));
+        }
+        return descriptions;
     }
 
 

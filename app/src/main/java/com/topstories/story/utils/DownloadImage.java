@@ -1,6 +1,7 @@
 package com.topstories.story.utils;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import java.net.URL;
 
 public class DownloadImage extends AsyncTask<ImageView, Void, Bitmap> {
 
+    @SuppressLint("StaticFieldLeak")
     private ImageView imageView;
     String url;
 

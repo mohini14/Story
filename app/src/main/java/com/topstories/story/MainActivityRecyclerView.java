@@ -29,14 +29,14 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
     @NonNull
     @Override
     public RecyclerviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_recyclerview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.vertical_recyclerview_cell, parent, false);
         return new MainActivityRecyclerView.RecyclerviewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
         holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position).getImageURLList(), mContext));
+        holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position), mContext));
         holder.textView.setText(dataArray.get(position).getCategory());
     }
 

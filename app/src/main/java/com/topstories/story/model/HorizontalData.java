@@ -1,16 +1,12 @@
 package com.topstories.story.model;
 
-public class HorizontalData {
-    public String getImageURL() {
-        return imageURL;
-    }
+import lombok.Getter;
+import lombok.Setter;
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+@Getter
+@Setter
+public class HorizontalData {
 
     private String imageURL;
-
-
 
 }
