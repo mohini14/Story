@@ -33,6 +33,7 @@ public class Story {
     private List<String> generes;
     private DateTime createdAt;
     private String author;
+    private List<String> languages;
 
     public Story(){
         thumbNailUrl = AppStrings.getRandomImageUrl();
@@ -48,6 +49,7 @@ public class Story {
         generes = Arrays.asList(faker.book.genre(), faker.book.genre(), faker.book.genre());
         createdAt = new DateTime(faker.date.backward().getTime());
         author = faker.name.name();
+        languages = Arrays.asList("Hindi", "English", "Tamil", "Malyalam");
     }
 
     public String getGeneresText(){
@@ -78,4 +80,6 @@ public class Story {
     public String viewsCountText(){
         return Gen.numberToTextFormat(Double.valueOf(views));
     }
+
+
 }

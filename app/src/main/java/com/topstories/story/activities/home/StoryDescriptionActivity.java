@@ -7,7 +7,9 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -49,6 +51,9 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     public ImageView shareCountImageView;
     @BindView(R.id.story_description_whatsapp_count_image_id)
     public ImageView whatsappCountImageView;
+    @BindView(R.id.story_description_language_spinner_id)
+    public Spinner languageSpinner;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -76,6 +81,11 @@ public class StoryDescriptionActivity extends AppCompatActivity {
         whatsappCountTextView.setText(currentStory.lovedCountText());
         shareCountTextView.setText(currentStory.lovedCountText());
         viewsCountTextView.setText(currentStory.viewsCountText());
+
+        // setting language spinner
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,  currentStory.getLanguages());
+        languageSpinner.setAdapter(arrayAdapter);
+
 
         final StoryDescriptionActivity activity = this;
 
@@ -109,6 +119,7 @@ public class StoryDescriptionActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+
 
 
 }
