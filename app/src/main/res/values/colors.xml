@@ -7,4 +7,7 @@
     <color name="transparentColor">#00FFFFFF</color>
     <color name="titleTextColor">#343434</color>
     <color name="descriptionTextColor">#595959</color>
+    <color name="whiteTitleTextColor">#E6E6E6</color>
+    <color name="whiteDescriptionTextColor">#DADADA</color>
+
 </resources>
