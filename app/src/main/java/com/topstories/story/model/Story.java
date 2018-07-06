@@ -3,6 +3,9 @@ package com.topstories.story.model;
 import com.topstories.story.utils.AppStrings;
 import com.topstories.story.utils.Gen;
 
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -28,7 +31,7 @@ public class Story {
     private Integer views;
     private List<String> tags;
     private List<String> generes;
-    private Date createdAt;
+    private DateTime createdAt;
     private String author;
 
     public Story(){
@@ -43,17 +46,21 @@ public class Story {
         views = (int) (Math.random() * 10000);
         tags = Arrays.asList(faker.team.name(), faker.team.name(), faker.team.name());
         generes = Arrays.asList(faker.book.genre(), faker.book.genre(), faker.book.genre());
-        createdAt = faker.date.backward();
+        createdAt = new DateTime(faker.date.backward().getTime());
         author = faker.name.name();
     }
 
     public String getGeneresText(){
-//        return String.join(",", generes);
-        return generes.toString();
+        return StringUtils.join(generes, ", ");
     }
 
     public String getAuthorBioText(){
         return MessageFormat.format("By {0} in {1}", author, createdAt.getYear());
+    }
+
+
+    public String getDescription() {
+        return description + "\n\n\n";
     }
 
     public String likesCountText() {
