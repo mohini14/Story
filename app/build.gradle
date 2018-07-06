@@ -56,6 +56,10 @@ dependencies {
     // org apache
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 
+    // card stack view
+    implementation "com.yuyakaido.android:card-stack-view:1.0.0-beta9"
+
+    implementation 'com.android.support:cardview-v7:27.1.1'
 
 
 }
