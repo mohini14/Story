@@ -105,7 +105,7 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     }
 
     private void shareIt(String message) {
-        message = MessageFormat.format("{0}\n\nRead more at: https://lolmenow.com", message);
+        message = MessageFormat.format("{0}........\n\nRead more at: https://lolmenow.com", message);
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Real Short Tales: " + currentStory.getTitle());
@@ -114,7 +114,7 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     }
 
     private void shareMessageOnWhatsapp(String message) {
-        String url = MessageFormat.format("whatsapp://send?text={0}\n\nRead more at: https://lolmenow.com", message);
+        String url = MessageFormat.format("whatsapp://send?text={0}.......\n\nRead more at: https://lolmenow.com", message);
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
