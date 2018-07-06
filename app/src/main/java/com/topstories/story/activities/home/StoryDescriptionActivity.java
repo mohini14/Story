@@ -28,7 +28,7 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     @BindView(R.id.story_description_author_view_id) public TextView authorView;
     @BindView(R.id.story_description_likes_count_id) public TextView likesCountTextView;
     @BindView(R.id.story_description_dislikes_count_id) public TextView dislikesCountTextView;
-    @BindView(R.id.story_description_loves_count_id) public TextView lovedCountTextView;
+    @BindView(R.id.story_description_whatsapp_count_id) public TextView lovedCountTextView;
     @BindView(R.id.story_description_views_count_id) public TextView viewsCountTextView;
 
 
