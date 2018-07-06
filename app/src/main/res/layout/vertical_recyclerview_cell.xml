@@ -9,10 +9,10 @@
         android:id="@+id/main_page_section_title_textview"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:fontFamily="@font/roboto"
         android:gravity="start|bottom"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/main_page_title_size"
-        android:textStyle="bold" />
+        android:textColor="@color/colorWhiteBackground"
+        android:textSize="@dimen/main_page_title_size" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/horizontal_recyclerview"
