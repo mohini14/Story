@@ -53,8 +53,8 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
             @Override
             public void onClick(View v) {
                 Gen.showLoader(activity);
-//                SavedInstance.getInstance().selectedStory = holder.story;
-//                Gen.startActivity(activity, false, StoryDescriptionActivity.class);
+                SavedInstance.getInstance().selectedStory = holder.story;
+                Gen.startActivity(activity, false, StoryDescriptionActivity.class);
             }
         });
 

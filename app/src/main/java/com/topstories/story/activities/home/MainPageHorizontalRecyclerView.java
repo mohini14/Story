@@ -22,11 +22,11 @@ import butterknife.ButterKnife;
 public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPageHorizontalRecyclerView.RecyclerviewHolder> {
 
     private MainPageData mData;
-    private Context mContext;
+    private Activity activity;
 
-    MainPageHorizontalRecyclerView(MainPageData data, Context con) {
+    MainPageHorizontalRecyclerView(MainPageData data, Activity activity) {
         mData = data;
-        mContext = con;
+        this.activity = activity;
     }
 
     @NonNull
@@ -41,7 +41,7 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
         holder.story = mData.getStories().get(position);
 
         final Story story = holder.story;
-        Picasso.with(mContext)
+        Picasso.with(activity)
                 .load(holder.story.getThumbNailUrl())
                 .error(R.drawable.loading)
                 .placeholder(R.drawable.loading)
@@ -50,9 +50,9 @@ public class MainPageHorizontalRecyclerView extends RecyclerView.Adapter<MainPag
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Gen.makeShortToast(mContext, "Story clicked is " + story.getTitle());
+                Gen.makeShortToast(activity, "Story clicked is " + story.getTitle());
                 SavedInstance.getInstance().selectedStory = story;
-                Gen.startActivity((Activity) mContext, false, StoryDescriptionActivity.class);
+                Gen.startActivity(activity, false, StoryDescriptionActivity.class);
             }
         });
     }

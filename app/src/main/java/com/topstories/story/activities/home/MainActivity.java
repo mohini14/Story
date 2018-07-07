@@ -19,7 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        BottomNavigationView.OnNavigationItemSelectedListener,
+        HomeFragment.SendCategorySelected {
 
 
     @Nullable
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public static int SEARCH_FRAGMENT_TAG = 10000;
     public static int DOWNLOAD_FRAGMENT_TAG = 2000;
     public static int HOME_FRAGMENT_TAG = 30000;
+    public static int STORY_LISTING_FRAGMENT_TAG = 40000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +69,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         android.support.v4.app.Fragment fragExists = getSupportFragmentManager().findFragmentByTag(String.valueOf(tag));
         if (fragExists == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//            transaction.addToBackStack(String.valueOf(tag));
             transaction.replace(R.id.home_frag_container, fragment, String.valueOf(tag));
-                transaction.commit();
+            transaction.commit();
         }
     }
 
     /**
      * Method to remove all fragments from container
      */
-    private void removeAllFragFromActivity(){
+    private void removeAllFragFromActivity() {
         FragmentManager fm = getSupportFragmentManager();
 
         for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     /**
      * Method invoked as item listener for bottom navigation view items
+     *
      * @param item : item clecked
      */
     @Override
@@ -103,5 +108,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
         return false;
+    }
+
+    @Override
+    public void sendCategorySelected(String category) {
+        addFragmentOnHomeActivity(new StoryListFragment(), STORY_LISTING_FRAGMENT_TAG);
     }
 }

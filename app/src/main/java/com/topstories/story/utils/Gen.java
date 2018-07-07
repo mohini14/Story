@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,5 +78,9 @@ public class Gen {
         else
             return String.format("%.2fM", likes/1000000) ;
 
+    }
+
+    public static void log(String s) {
+        Log.d("XXX", s);
     }
 }

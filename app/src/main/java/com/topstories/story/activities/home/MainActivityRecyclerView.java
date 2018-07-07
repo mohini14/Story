@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,10 +24,10 @@ import com.topstories.story.utils.Gen;
 public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityRecyclerView.RecyclerviewHolder> {
 
 
-    ArrayList<MainPageData> dataArray;
+    List<MainPageData> dataArray;
     Activity activity;
 
-    public MainActivityRecyclerView(ArrayList<MainPageData> data, Activity activity) {
+    public MainActivityRecyclerView(List<MainPageData> data, Activity activity) {
         this.dataArray = data;
         this.activity = activity;
     }
@@ -39,7 +40,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerviewHolder holder, final int position) {
         final Activity activity = this.activity;
         holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
         holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position), activity));
@@ -49,7 +50,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
             @Override
             public void onClick(View v) {
                 Gen.showLoader(activity);
-                Gen.startActivity(activity, false, StoryListingActivity.class);
+                ((HomeFragment.SendCategorySelected) activity).sendCategorySelected("This is ridiculous");
             }
         });
 

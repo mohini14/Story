@@ -26,15 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.home.StoryDescriptionActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".activities.home.StoryListingActivity"
+        <activity android:name=".activities.home.StoryDescriptionActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

@@ -1,11 +1,17 @@
 package com.topstories.story.activities.home;
 
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.arasthel.asyncjob.AsyncJob;
 import com.topstories.story.R;
@@ -18,31 +24,31 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StoryListingActivity extends AppCompatActivity {
+public class StoryListFragment extends Fragment {
 
-    public List<Story> stories = new ArrayList<>();
-    @BindView(R.id.story_listing_recycler_view_id) public RecyclerView recyclerView;
+    @BindView(R.id.story_listing_recycler_view_id)
+    public RecyclerView recyclerView;
     public StoryListAdapter adapter;
+    public List<Story> stories = new ArrayList<>();
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_story_listing);
-        ButterKnife.bind(this);
-
-        adapter = new StoryListAdapter(stories, this);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_story_listing, container, false);
+        ButterKnife.bind(this, view);
+        adapter = new StoryListAdapter(stories, getActivity());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        Gen.showLoader(this);
+        Gen.showLoader(getActivity());
         prepareDataAsync();
 
-
+        return view;
     }
 
     public void prepareDataAsync() {
-        final Activity activity = this;
         AsyncJob.doInBackground(new AsyncJob.OnBackgroundJob() {
             @Override
             public void doOnBackground() {
@@ -50,19 +56,17 @@ public class StoryListingActivity extends AppCompatActivity {
                 AsyncJob.doOnMainThread(new AsyncJob.OnMainThreadJob() {
                     @Override
                     public void doInUIThread() {
-                        Gen.hideLoader(activity);
                         adapter.notifyDataSetChanged();
+                        Gen.hideLoader(getActivity());
                     }
                 });
             }
         });
     }
 
-    public void prepareData(){
-        for (int i = 0 ; i < 100 ; i++){
+    public void prepareData() {
+        for (int i = 0; i < 100; i++) {
             stories.add(new Story());
         }
     }
-
-
 }
