@@ -5,10 +5,12 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -49,6 +51,7 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
         holder.descriptionTextView.setText(holder.story.getShortDescription());
         holder.authorTextView.setText(holder.story.getAuthor());
         holder.viewCountTextView.setText(holder.story.viewsCountText());
+        holder.tagsTextView.setText(holder.story.getGeneresText());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,9 +86,12 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
         @BindView(R.id.story_list_cell_author_view_id)
         public TextView authorTextView;
         @BindView(R.id.story_list_cell_layout_id)
-        public ConstraintLayout layout;
+        public LinearLayout layout;
         @BindView(R.id.story_list_cell_view_count_view_id)
         public TextView viewCountTextView;
+
+        @BindView(R.id.story_list_cell_tags_view_id)
+        public TextView tagsTextView;
 
         public StoryListViewHolder(View view) {
             super(view);

@@ -8,6 +8,7 @@
     <color name="titleTextColor">#343434</color>
     <color name="descriptionTextColor">#595959</color>
     <color name="whiteTitleTextColor">#E6E6E6</color>
-    <color name="whiteDescriptionTextColor">#DADADA</color>
+    <color name="whiteDescriptionTextColor">#abaaaa</color>
+    <color name="darkBlueTextColor">#105BFB</color>
 
 </resources>

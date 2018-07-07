@@ -60,5 +60,8 @@ dependencies {
     // async task
     implementation 'com.arasthel:asyncjob-library:1.0.3'
 
+    // card view
+    implementation 'com.android.support:cardview-v7:27.1.1'
+
 
 }
