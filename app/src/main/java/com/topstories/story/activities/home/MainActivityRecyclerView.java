@@ -24,11 +24,11 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
 
 
     ArrayList<MainPageData> dataArray;
-    Context mContext;
+    Activity activity;
 
-    public MainActivityRecyclerView(ArrayList<MainPageData> data, Context con) {
+    public MainActivityRecyclerView(ArrayList<MainPageData> data, Activity activity) {
         this.dataArray = data;
-        this.mContext = con;
+        this.activity = activity;
     }
 
     @NonNull
@@ -40,14 +40,16 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewHolder holder, int position) {
-        holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position), mContext));
+        final Activity activity = this.activity;
+        holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
+        holder.childRecyclerView.setAdapter(new MainPageHorizontalRecyclerView(dataArray.get(position), activity));
         holder.textView.setText(dataArray.get(position).getCategory());
 
         holder.viewAllTextView.setOnClickListener(new TextView.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Gen.startActivity((Activity) mContext, false, StoryListingActivity.class);
+                Gen.showLoader(activity);
+                Gen.startActivity(activity, false, StoryListingActivity.class);
             }
         });
 

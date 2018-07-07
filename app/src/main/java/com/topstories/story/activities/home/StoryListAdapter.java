@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.StoryListViewHolder> {
 
     public List<Story> stories;
-    public Context context;
+    public Activity activity;
 
     @NonNull
     @Override
@@ -40,7 +40,7 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
     public void onBindViewHolder(@NonNull final StoryListViewHolder holder, int position) {
         holder.story = stories.get(position);
 
-        Picasso.with(context)
+        Picasso.with(activity.getApplicationContext())
                 .load(holder.story.getThumbNailUrl())
                 .error(R.drawable.loading)
                 .placeholder(R.drawable.loading)
@@ -52,8 +52,9 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SavedInstance.getInstance().selectedStory = holder.story;
-                Gen.startActivity((Activity) context, false, StoryDescriptionActivity.class);
+                Gen.showLoader(activity);
+//                SavedInstance.getInstance().selectedStory = holder.story;
+//                Gen.startActivity(activity, false, StoryDescriptionActivity.class);
             }
         });
 
@@ -66,9 +67,9 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
         return stories.size();
     }
 
-    public StoryListAdapter(List<Story> stories, Context context){
+    public StoryListAdapter(List<Story> stories, Activity activity){
         this.stories = stories;
-        this.context = context;
+        this.activity = activity;
     }
 
     public class StoryListViewHolder extends RecyclerView.ViewHolder {

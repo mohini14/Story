@@ -63,9 +63,9 @@
                 android:textColor="@color/descriptionTextColor"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/story_description_language_spinner_id" />
 
             <ImageView
                 android:id="@+id/story_description_views_image_id"
@@ -91,70 +91,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/story_description_image_view_id" />
 
-            <TextView
-                android:id="@+id/story_description_generes_view_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:maxLines="2"
-                android:text="Romance, Thriller, Action"
-                android:textColor="#001aff"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="@+id/textView" />
-
-            <TextView
-                android:id="@+id/story_description_author_view_id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:text="By Aruna Mishal in 2018"
-                android:textColor="@color/descriptionTextColor"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/story_description_language_spinner_id"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/story_description_title_id" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:text="Tags"
-                android:textColor="@color/descriptionTextColor"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/story_description_author_view_id" />
-
             <Spinner
                 android:id="@+id/story_description_language_spinner_id"
                 android:layout_width="100dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/story_description_generes_view_id"
+                android:layout_marginTop="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/story_description_author_view_id" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/story_description_generes_view_id" />
+                app:layout_constraintTop_toBottomOf="@+id/story_description_title_id" />
 
 
         </android.support.constraint.ConstraintLayout>

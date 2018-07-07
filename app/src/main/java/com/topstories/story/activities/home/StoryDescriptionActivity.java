@@ -33,10 +33,10 @@ public class StoryDescriptionActivity extends AppCompatActivity {
     public TextView titleTextView;
     @BindView(R.id.story_description_description_id)
     public TextView descriptionTextView;
-    @BindView(R.id.story_description_generes_view_id)
-    public TextView generesView;
-    @BindView(R.id.story_description_author_view_id)
-    public TextView authorView;
+//    @BindView(R.id.story_description_generes_view_id)
+//    public TextView generesView;
+//    @BindView(R.id.story_description_author_view_id)
+//    public TextView authorView;
     @BindView(R.id.story_description_likes_count_id)
     public TextView likesCountTextView;
     @BindView(R.id.story_description_dislikes_count_id)
@@ -74,8 +74,8 @@ public class StoryDescriptionActivity extends AppCompatActivity {
         descriptionTextView.setText(currentStory.getDescription());
         descriptionTextView.setLineSpacing(20, 1);
 //        descriptionTextView.setLetterSpacing(0.05f);
-        generesView.setText(currentStory.getGeneresText());
-        authorView.setText(currentStory.getAuthorBioText());
+//        generesView.setText(currentStory.getGeneresText());
+//        authorView.setText(currentStory.getAuthorBioText());
         likesCountTextView.setText(currentStory.likesCountText());
         dislikesCountTextView.setText(currentStory.dislikesCountText());
         whatsappCountTextView.setText(currentStory.lovedCountText());

@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -15,6 +17,21 @@ import com.topstories.story.model.Story;
 public class Gen {
 
 
+
+    public static void showLoader(Activity activity) {
+        ViewGroup view = (ViewGroup) activity.getWindow().getDecorView().getRootView();
+
+        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        View loader = activity.findViewById(R.id.loading_indicator);
+        if (loader == null) {
+            assert inflater != null;
+            inflater.inflate(R.layout.loading_indicator, view, true);
+            loader = activity.findViewById(R.id.loading_indicator);
+        }
+        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        loader.setVisibility(View.VISIBLE);
+    }
 
     public static void makeShortToast (Context context, String message){
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();

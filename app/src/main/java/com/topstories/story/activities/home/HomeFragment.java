@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
         ButterKnife.bind(this, v);
         mMainPageRecyclerView.setHasFixedSize(true);
         mMainPageRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mMainPageRecyclerView.setAdapter(new MainActivityRecyclerView(new MainPageData().getData(), getContext()));
+        mMainPageRecyclerView.setAdapter(new MainActivityRecyclerView(new MainPageData().getData(), getActivity()));
     }
 
 }
