@@ -50,7 +50,7 @@ public class MainActivityRecyclerView extends RecyclerView.Adapter<MainActivityR
             @Override
             public void onClick(View v) {
                 Gen.showLoader(activity);
-                ((HomeFragment.SendCategorySelected) activity).sendCategorySelected("This is ridiculous");
+                ((HomeFragment.SendCategorySelected) activity).sendCategorySelected(dataArray.get(position).getCategory());
             }
         });
 

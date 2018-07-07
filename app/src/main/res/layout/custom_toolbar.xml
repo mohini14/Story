@@ -17,6 +17,7 @@
             android:textStyle="bold"
             android:textColor="#ff0000"
             android:layout_gravity="center"
+            android:id="@+id/custom_toolbar_text_view_id"
             android:gravity="center"
             android:textSize="@dimen/toolbar_text_size"/>
     </android.support.v7.widget.Toolbar>

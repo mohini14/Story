@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.topstories.story.R;
 import com.topstories.story.activities.download.DownloadFragment;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements
     @Nullable
     @BindView(R.id.my_toolbar)
     Toolbar mToolbar;
+
 
     @BindView(R.id.bottom_navigation_view)
     BottomNavigationView mBottomNavigationView;
@@ -113,5 +115,6 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void sendCategorySelected(String category) {
         addFragmentOnHomeActivity(new StoryListFragment(), STORY_LISTING_FRAGMENT_TAG);
+        ((TextView)findViewById(R.id.custom_toolbar_text_view_id)).setText(category);
     }
 }

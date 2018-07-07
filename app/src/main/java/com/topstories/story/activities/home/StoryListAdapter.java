@@ -23,7 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.StoryListViewHolder> {
+public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.StoryListViewHolder> {
 
     public List<Story> stories;
     public Activity activity;
@@ -58,8 +58,6 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
             }
         });
 
-
-
     }
 
     @Override
@@ -67,7 +65,7 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
         return stories.size();
     }
 
-    public StoryListAdapter(List<Story> stories, Activity activity){
+    public StoryListAdapter(List<Story> stories, Activity activity) {
         this.stories = stories;
         this.activity = activity;
     }
@@ -76,12 +74,19 @@ public class StoryListAdapter extends  RecyclerView.Adapter<StoryListAdapter.Sto
 
         public Story story;
 
-        @BindView(R.id.story_list_cell_image_view_id) public ImageView imageView;
-        @BindView(R.id.story_list_cell_title_view_id)public TextView titleTextView;
-        @BindView(R.id.story_list_cell_description_view_id)public TextView descriptionTextView;
-        @BindView(R.id.story_list_cell_author_view_id)public TextView authorTextView;
-        @BindView(R.id.story_list_cell_layout_id)public ConstraintLayout layout;
-        @BindView(R.id.story_list_cell_view_count_view_id) public TextView viewCountTextView;
+        @BindView(R.id.story_list_cell_image_view_id)
+        public ImageView imageView;
+        @BindView(R.id.story_list_cell_title_view_id)
+        public TextView titleTextView;
+        @BindView(R.id.story_list_cell_description_view_id)
+        public TextView descriptionTextView;
+        @BindView(R.id.story_list_cell_author_view_id)
+        public TextView authorTextView;
+        @BindView(R.id.story_list_cell_layout_id)
+        public ConstraintLayout layout;
+        @BindView(R.id.story_list_cell_view_count_view_id)
+        public TextView viewCountTextView;
+
         public StoryListViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
